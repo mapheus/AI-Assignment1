@@ -111,16 +111,15 @@ def is_leaf(state, avmoves):
 def calculate_range(range):
 	value = 0
 
-
-	if range.count(1) == 4:
-		value += 100
-	elif range.count(1) == 3 and range.count(0) == 1:
-		value += 5
-	elif range.count(1) == 2 and range.count(0) == 2:
-		value += 2
-
 	if range.count(-1) == 3 and range.count(0) == 1:
 		value -= 4
+
+	if range.count(1) == 4:
+		value += 99
+	elif range.count(1) == 3 and range.count(0) == 1:
+		value += 6
+	elif range.count(1) == 2 and range.count(0) == 2:
+		value += 2
 
 	return value
 
@@ -333,7 +332,7 @@ def play_game(vs_server = False):
 
 def main():
    while True:
-       a = input()
+       a = input("Press ENTER to start a game:")
        play_game(vs_server = True)
    # TODO: Change vs_server to True when you are ready to play against the server
    # the results of your games there will be logged
